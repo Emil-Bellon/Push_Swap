@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:40:47 by ebellon           #+#    #+#             */
-/*   Updated: 2021/06/29 18:05:28 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/06/30 20:25:46 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ra_rb(t_stack **stack, char *ope)
 	t_stack *tmp;
 	t_stack *last;
 
+	(void)ope;
 	if (*stack)
 	{
 		tmp = *stack;

@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:17:24 by ebellon           #+#    #+#             */
-/*   Updated: 2021/06/29 16:50:55 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/06/30 17:21:59 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
+# include "../libft/libft.h"
 
 typedef struct	s_stack
 {
@@ -22,6 +24,15 @@ typedef struct	s_stack
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }				t_stack;
+
+typedef	struct	s_data
+{
+	int	size;
+	int	*sort_tab;
+	int	nb_group;
+	int	size_group;
+	int	i_group;	
+}				t_data;
 
 
 t_stack	*ft_stacknew(int content);
