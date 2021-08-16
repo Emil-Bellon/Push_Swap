@@ -6,13 +6,30 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:40:47 by ebellon           #+#    #+#             */
-/*   Updated: 2021/06/30 20:25:46 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/08/15 18:24:04 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/push_swap.h"
 
-void	sa_sb(t_stack *stack, char *ope)
+char	*ft_strjoin_free(char *s1, char const *s2)
+{
+	int		len1;
+	int		len2;
+	char	*join;
+
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	join = ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (join == NULL)
+		return (NULL);
+	ft_memcpy(ft_memcpy(join, s1, len1) + len1, s2, len2 + 1);
+	if (s1)
+		free(s1);
+	return (join);
+}
+
+void	sa_sb(t_stack *stack, char *ope, t_data *data)
 {
 	int	tmp;
 
@@ -21,17 +38,18 @@ void	sa_sb(t_stack *stack, char *ope)
 		tmp = stack->content;
 		stack->content = (stack->next)->content;
 		(stack->next)->content = tmp;
-		printf("%s\n", ope);
+		data->instructions = ft_strjoin_free(data->instructions, ope);
+		// printf("%s\n", ope);
 	}
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_data *data)
 {
-	sa_sb(a, "sa");
-	sa_sb(b, "sb");
+	sa_sb(a, "sa", data);
+	sa_sb(b, "sb", data);
 }
 
-void	pa_pb(t_stack **from, t_stack **to, char *ope)
+void	pa_pb(t_stack **from, t_stack **to, char *ope, t_data *data)
 {
 	t_stack	*tmp;
 	
@@ -45,11 +63,12 @@ void	pa_pb(t_stack **from, t_stack **to, char *ope)
 			ft_stackadd_front(to, tmp);
 		else
 			*to = ft_stacknew(tmp->content);
-		printf("%s\n", ope);
+		data->instructions = ft_strjoin_free(data->instructions, ope);
+		// printf("%s\n", ope);
 	}
 }
 
-void	ra_rb(t_stack **stack, char *ope)
+void	ra_rb(t_stack **stack, char *ope, t_data *data)
 {
 	t_stack *tmp;
 	t_stack *last;
@@ -64,17 +83,18 @@ void	ra_rb(t_stack **stack, char *ope)
 		last->next = tmp;
 		tmp->prev = last;
 		tmp->next = NULL;
-		printf("%s\n", ope);
+		data->instructions = ft_strjoin_free(data->instructions, ope);
+		// printf("%s\n", ope);
 	}
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, t_data *data)
 {
-	ra_rb(a, "ra");
-	ra_rb(b, "rb");
+	ra_rb(a, "ra", data);
+	ra_rb(b, "rb", data);
 }
 
-void	rra_rrb(t_stack **stack, char *ope)
+void	rra_rrb(t_stack **stack, char *ope, t_data *data)
 {
 	t_stack *tmp;
 
@@ -86,12 +106,13 @@ void	rra_rrb(t_stack **stack, char *ope)
 		tmp->next = *stack;
 		(*stack)->prev = tmp;
 		(*stack) = tmp;
-		printf("%s\n", ope);
+		data->instructions = ft_strjoin_free(data->instructions, ope);
+		// printf("%s\n", ope);
 	}
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, t_data *data)
 {
-	rra_rrb(a, "rra");
-	rra_rrb(b, "rrb");
+	rra_rrb(a, "rra", data);
+	rra_rrb(b, "rrb", data);
 }
