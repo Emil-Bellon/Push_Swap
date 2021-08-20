@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:26:07 by ebellon           #+#    #+#             */
-/*   Updated: 2021/06/29 16:25:58 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/08/17 21:39:33 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ t_stack	*ft_stacknew(int content)
 	{
 		stack->content = content;
 		stack->next = NULL;
-        stack->prev = NULL;
+		stack->prev = NULL;
 	}
 	return (stack);
 }
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-    t_stack *last;
+	t_stack	*last;
 
-    last = ft_stacklast(*stack);
+	last = ft_stacklast(*stack);
 	if (!*stack)
 		*stack = new;
 	else
-    {
+	{
 		last->next = new;
-        new->prev = last;
-    }
+		new->prev = last;
+	}
 }
 
 void	ft_stackadd_front(t_stack **stack, t_stack *new)
@@ -105,7 +105,7 @@ int	ft_in_stack(t_stack *stack, int content)
 void	ft_free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
-	
+
 	while (stack)
 	{
 		tmp = stack->next;

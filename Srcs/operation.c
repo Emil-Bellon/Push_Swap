@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:40:47 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/15 18:24:04 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/08/20 16:09:16 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	sa_sb(t_stack *stack, char *ope, t_data *data)
 		stack->content = (stack->next)->content;
 		(stack->next)->content = tmp;
 		data->instructions = ft_strjoin_free(data->instructions, ope);
-		// printf("%s\n", ope);
 	}
 }
 
@@ -52,7 +51,7 @@ void	ss(t_stack *a, t_stack *b, t_data *data)
 void	pa_pb(t_stack **from, t_stack **to, char *ope, t_data *data)
 {
 	t_stack	*tmp;
-	
+
 	if (*from)
 	{
 		tmp = *from;
@@ -62,18 +61,19 @@ void	pa_pb(t_stack **from, t_stack **to, char *ope, t_data *data)
 		if (*to)
 			ft_stackadd_front(to, tmp);
 		else
+		{
 			*to = ft_stacknew(tmp->content);
+			free(tmp);
+		}
 		data->instructions = ft_strjoin_free(data->instructions, ope);
-		// printf("%s\n", ope);
 	}
 }
 
 void	ra_rb(t_stack **stack, char *ope, t_data *data)
 {
-	t_stack *tmp;
-	t_stack *last;
+	t_stack	*tmp;
+	t_stack	*last;
 
-	(void)ope;
 	if (*stack)
 	{
 		tmp = *stack;
@@ -84,7 +84,6 @@ void	ra_rb(t_stack **stack, char *ope, t_data *data)
 		tmp->prev = last;
 		tmp->next = NULL;
 		data->instructions = ft_strjoin_free(data->instructions, ope);
-		// printf("%s\n", ope);
 	}
 }
 
@@ -96,7 +95,7 @@ void	rr(t_stack **a, t_stack **b, t_data *data)
 
 void	rra_rrb(t_stack **stack, char *ope, t_data *data)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (*stack)
 	{
@@ -107,7 +106,6 @@ void	rra_rrb(t_stack **stack, char *ope, t_data *data)
 		(*stack)->prev = tmp;
 		(*stack) = tmp;
 		data->instructions = ft_strjoin_free(data->instructions, ope);
-		// printf("%s\n", ope);
 	}
 }
 
