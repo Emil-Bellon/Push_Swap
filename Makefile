@@ -6,7 +6,7 @@
 #    By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/30 17:16:37 by ebellon           #+#    #+#              #
-#    Updated: 2021/08/20 19:10:17 by ebellon          ###   ########lyon.fr    #
+#    Updated: 2021/08/25 19:10:46 by ebellon          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,10 @@ SRCS_DIR	=	Srcs/
 
 SRCS		=	list_utils.c \
 				operation.c \
+				ref_tab__opti_string.c \
+				push_small.c \
+				push_big.c \
+				init_stack.c \
 				main.c
 
 SRCS_FULL	=	$(addprefix $(SRCS_DIR), $(SRCS))

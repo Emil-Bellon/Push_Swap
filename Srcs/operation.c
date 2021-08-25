@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:40:47 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/20 16:09:16 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/08/25 18:34:53 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ void	sa_sb(t_stack *stack, char *ope, t_data *data)
 		(stack->next)->content = tmp;
 		data->instructions = ft_strjoin_free(data->instructions, ope);
 	}
-}
-
-void	ss(t_stack *a, t_stack *b, t_data *data)
-{
-	sa_sb(a, "sa", data);
-	sa_sb(b, "sb", data);
 }
 
 void	pa_pb(t_stack **from, t_stack **to, char *ope, t_data *data)
@@ -87,12 +81,6 @@ void	ra_rb(t_stack **stack, char *ope, t_data *data)
 	}
 }
 
-void	rr(t_stack **a, t_stack **b, t_data *data)
-{
-	ra_rb(a, "ra", data);
-	ra_rb(b, "rb", data);
-}
-
 void	rra_rrb(t_stack **stack, char *ope, t_data *data)
 {
 	t_stack	*tmp;
@@ -107,10 +95,4 @@ void	rra_rrb(t_stack **stack, char *ope, t_data *data)
 		(*stack) = tmp;
 		data->instructions = ft_strjoin_free(data->instructions, ope);
 	}
-}
-
-void	rrr(t_stack **a, t_stack **b, t_data *data)
-{
-	rra_rrb(a, "rra", data);
-	rra_rrb(b, "rrb", data);
 }
