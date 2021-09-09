@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:51:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 18:56:46 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 15:42:29 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	swap(int *tab, int j)
 	return (1);
 }
 
-int	*init_sort_tab(int ac, char **av, int av_mal)
+int	*init_sort_tab(int ac, char **av, int av_mal, t_data *data)
 {
 	int	*tab;
 	int	i;
@@ -45,10 +45,7 @@ int	*init_sort_tab(int ac, char **av, int av_mal)
 				sort = swap(tab, j);
 		}
 	}
-	if (sort == 1)
-		return (tab);
-	free(tab);
-	exit(0);
+	return (ft_check_tab(data, ac, tab, sort));
 }
 
 static void	search_dumb_instr(char *str, char *instructions, int offset, int i)

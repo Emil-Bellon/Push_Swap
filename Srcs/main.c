@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:28:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 19:11:46 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 16:07:20 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_push_big(t_stack **a, t_stack **b, t_data *data)
 {
 	char	*opti_instr;
 
-	data->nb_group = sqrt(data->size) / 1.6;
+	data->nb_group = root(data->size) / 1.6;
 	data->size_group = data->size / data->nb_group;
 	data->i_group = 0;
 	while (ft_stacksize(*b) < data->size)
@@ -75,7 +75,7 @@ int	init_stack_with_string(char **av, t_data *data, t_stack **a)
 	}
 	while (av[ac])
 		ac++;
-	data->sort_tab = init_sort_tab(ac, av, 1);
+	data->sort_tab = init_sort_tab(ac, av, 1, data);
 	*a = init_stack(ac, av);
 	while (av[i])
 	{
@@ -88,7 +88,7 @@ int	init_stack_with_string(char **av, t_data *data, t_stack **a)
 
 int	init_stack_with_args(char **av, t_data *data, t_stack **a, int ac)
 {
-	data->sort_tab = init_sort_tab(ac, av, 0);
+	data->sort_tab = init_sort_tab(ac, av, 0, data);
 	*a = init_stack(ac, av);
 	return (ac);
 }

@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:17:24 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 19:12:12 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 15:56:09 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,16 @@ void	pa_pb(t_stack **from, t_stack **to, char *ope, t_data *data);
 void	ra_rb(t_stack **stack, char *ope, t_data *data);
 void	rra_rrb(t_stack **stack, char *ope, t_data *data);
 char	*opti_instructions(char *str);
-int		*init_sort_tab(int ac, char **av, int av_mal);
+int		*init_sort_tab(int ac, char **av, int av_mal, t_data *data);
 int		ft_atoi_ps(const char *str, int *tab, char **av, int av_mal);
 void	push_3(t_data *data, t_stack **a, int offset);
 void	push_5(t_data *data, t_stack **a, t_stack **b);
 void	push_b_group(t_data *data, t_stack **a, t_stack **b);
 void	push_a_group(t_data *data, t_stack **a, t_stack **b, int group);
 void	ft_free_stack(t_stack *stack);
+int		*ft_check_tab(t_data *data, int ac, int *tab, int sort);
 t_stack	*init_stack(int ac, char **av);
 int		ft_atoi_ps(const char *str, int *tab, char **av, int av_mal);
+double	root(double n);
 
 #endif

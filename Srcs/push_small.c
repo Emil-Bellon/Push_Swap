@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:59:27 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 19:02:13 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 16:10:18 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,27 @@ void	push_5(t_data *data, t_stack **a, t_stack **b)
 	else
 		push_3(data, a, 1);
 	pa_pb(b, a, "pa\n", data);
+}
+
+double	root(double n)
+{
+	double	lo;
+	double	hi;
+	double	mid;
+	int		i;
+
+	lo = 1;
+	hi = n;
+	i = -1;
+	while (++i < 100)
+	{
+		mid = (lo + hi) / 2;
+		if (mid * mid == n)
+			return (mid);
+		if (mid * mid > n)
+			hi = mid;
+		else
+			lo = mid;
+	}
+	return (mid);
 }

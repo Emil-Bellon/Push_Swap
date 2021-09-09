@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:26:07 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 19:08:04 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 15:27:14 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,26 +68,3 @@ int	ft_stacksize(t_stack *stack)
 	}
 	return (size);
 }
-
-// int	ft_in_stack(t_stack *stack, int content)
-// {
-// 	while (stack)
-// 	{
-// 		if (stack->content == content)
-// 			return (1);
-// 		stack = stack->next;
-// 	}
-// 	return (0);
-// }
-
-// void	ft_free_stack(t_stack *stack)
-// {
-// 	t_stack	*tmp;
-
-// 	while (stack)
-// 	{
-// 		tmp = stack->next;
-// 		free(stack);
-// 		stack = tmp;
-// 	}
-// }

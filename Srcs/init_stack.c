@@ -6,21 +6,37 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 19:07:21 by ebellon           #+#    #+#             */
-/*   Updated: 2021/08/25 19:09:56 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/09 15:47:30 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Headers/push_swap.h"
 
-static int	ft_in_stack(t_stack *stack, int content)
+int	*ft_check_tab(t_data *data, int ac, int *tab, int sort)
 {
-	while (stack)
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < ac)
 	{
-		if (stack->content == content)
-			return (1);
-		stack = stack->next;
+		j = -1;
+		while (++j < ac)
+		{
+			if (i != j && tab[i] == tab[j])
+			{
+				free(tab);
+				free(data);
+				printf("Error\n-> There are duplicates\n");
+				exit(1);
+			}
+		}
 	}
-	return (0);
+	if (sort == 1)
+		return (tab);
+	free(tab);
+	free(data);
+	exit(0);
 }
 
 void	ft_free_stack(t_stack *stack)
@@ -96,12 +112,6 @@ t_stack	*init_stack(int ac, char **av)
 		fst = ft_stacknew(ft_atoi(av[0]));
 		while (i < ac)
 		{
-			if (ft_in_stack(fst, ft_atoi(av[i])) == 1)
-			{
-				ft_free_stack(fst);
-				printf("Error\n-> There are duplicates\n");
-				return (NULL);
-			}
 			new = ft_stacknew(ft_atoi(av[i]));
 			ft_stackadd_back(&fst, new);
 			i++;
