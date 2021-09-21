@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:28:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/21 13:39:27 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 14:33:42 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,10 @@ int	init_stack_with_string(char **av, t_data *data, t_stack **a)
 
 	i = 0;
 	ac = 0;
-	if (!av || !av[2])
+	if (!av || !av[1])
 	{
-		free(av[0]);
-		free(av);
 		free(data);
-		return (1);
+		exit(0);
 	}
 	while (av[ac])
 		ac++;
@@ -100,11 +98,11 @@ int	main(int ac1, char **av1)
 	t_data	*data;
 	int		ac;
 
+	if (ac1 < 2 || !av1[1][0])
+		return (0);
 	data = malloc(sizeof(t_data));
 	data->instructions = NULL;
-	if (ac1 < 2)
-		return (0);
-	else if (ac1 == 2)
+	if (ac1 == 2 && ft_chech_sing_arg(av1[1], data))
 		ac = init_stack_with_string(ft_split(av1[1], ' '), data, &a);
 	else
 		ac = init_stack_with_args(av1 + 1, data, &a, ac1 - 1);

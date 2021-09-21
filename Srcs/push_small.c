@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:59:27 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/09 16:10:18 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 14:32:25 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,32 @@ double	root(double n)
 			lo = mid;
 	}
 	return (mid);
+}
+
+int	ft_chech_sing_arg(char *str, t_data *data)
+{
+	int	i;
+	int	space_cpt;
+
+	i = 0;
+	space_cpt = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]) && str[i] != ' ')
+		{
+			printf("Error : args should only be int input as digit");
+			free(data);
+			return (0);
+		}
+		if (str[i] == ' ')
+			space_cpt++;
+		i++;
+	}
+	if (space_cpt == i)
+	{
+		printf("Error : args should only be int input as digit");
+		free(data);
+		return (0);
+	}
+	return (1);
 }

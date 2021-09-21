@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 18:17:24 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/09 15:56:09 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 14:32:35 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		*ft_check_tab(t_data *data, int ac, int *tab, int sort);
 t_stack	*init_stack(int ac, char **av);
 int		ft_atoi_ps(const char *str, int *tab, char **av, int av_mal);
 double	root(double n);
+int		ft_chech_sing_arg(char *str, t_data *data);
 
 #endif
