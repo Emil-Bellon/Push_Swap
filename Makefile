@@ -6,7 +6,7 @@
 #    By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/30 17:16:37 by ebellon           #+#    #+#              #
-#    Updated: 2021/08/25 19:10:46 by ebellon          ###   ########lyon.fr    #
+#    Updated: 2021/09/21 17:20:48 by ebellon          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ LIBS_FILES	=	./libft/libft.a
 
 all:			libraries $(NAME)
 
-%.o: 			%.c $(INCS_FULL)
+%.o: 			%.c $(INCS_FULL) libft/libft.a
 				$(CC) $(FLAGS) -I $(INCS_DIR) -c $< -o $@
 
 $(NAME): 		$(OBJS) $(LIBS_FILES)
