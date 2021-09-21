@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:28:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/09 16:07:20 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/21 13:39:27 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main(int ac1, char **av1)
 	data = malloc(sizeof(t_data));
 	data->instructions = NULL;
 	if (ac1 < 2)
-		return (printf("Error : need at list one arguments\n"));
+		return (0);
 	else if (ac1 == 2)
 		ac = init_stack_with_string(ft_split(av1[1], ' '), data, &a);
 	else
