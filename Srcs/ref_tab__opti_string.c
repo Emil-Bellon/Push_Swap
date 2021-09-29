@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:51:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/09 15:42:29 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 16:17:46 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	*init_sort_tab(int ac, char **av, int av_mal, t_data *data)
 	j = 0;
 	i = 0;
 	tab = malloc(sizeof(int) * ac);
+	if (tab == NULL)
+		return (NULL);
 	while (j < ac)
 		tab[i++] = ft_atoi_ps(av[j++], tab, av, av_mal);
 	i = -1;
@@ -84,6 +86,8 @@ static char	*erase_spaces(char *str)
 	i = 0;
 	j = 0;
 	ret = ft_calloc(ft_strlen(str), sizeof(char));
+	if (ret == NULL)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] != ' ')
@@ -102,11 +106,17 @@ char	*opti_instructions(char *str)
 	char	*instructions;
 
 	instructions = ft_calloc(ft_strlen(str), sizeof(char));
+	if (instructions == NULL)
+		return (NULL);
 	search_dumb_instr(str, instructions, 1, 0);
 	free(str);
 	str = ft_strdup(instructions);
+	if (str == NULL)
+		return (NULL);
 	free(instructions);
 	instructions = ft_calloc(ft_strlen(str), sizeof(char));
+	if (instructions == NULL)
+		return (NULL);
 	search_dumb_instr(str, instructions, 2, 0);
 	free(str);
 	instructions = erase_spaces(instructions);

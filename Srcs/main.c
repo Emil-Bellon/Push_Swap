@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:28:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/21 14:33:42 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/09/29 16:13:23 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int	main(int ac1, char **av1)
 	if (ac1 < 2 || !av1[1][0])
 		return (0);
 	data = malloc(sizeof(t_data));
+	if (data == NULL)
+		return (1);
 	data->instructions = NULL;
 	if (ac1 == 2 && ft_chech_sing_arg(av1[1], data))
 		ac = init_stack_with_string(ft_split(av1[1], ' '), data, &a);
