@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:51:52 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/29 16:17:46 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/10/01 16:15:00 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static char	*erase_spaces(char *str)
 
 	i = 0;
 	j = 0;
-	ret = ft_calloc(ft_strlen(str), sizeof(char));
+	ret = ft_calloc(ft_strlen(str) + 1, sizeof(char));
 	if (ret == NULL)
 		return (NULL);
 	while (str[i])
@@ -105,7 +105,7 @@ char	*opti_instructions(char *str)
 {
 	char	*instructions;
 
-	instructions = ft_calloc(ft_strlen(str), sizeof(char));
+	instructions = ft_calloc(ft_strlen(str) + 1, sizeof(char));
 	if (instructions == NULL)
 		return (NULL);
 	search_dumb_instr(str, instructions, 1, 0);
@@ -114,7 +114,7 @@ char	*opti_instructions(char *str)
 	if (str == NULL)
 		return (NULL);
 	free(instructions);
-	instructions = ft_calloc(ft_strlen(str), sizeof(char));
+	instructions = ft_calloc(ft_strlen(str) + 1, sizeof(char));
 	if (instructions == NULL)
 		return (NULL);
 	search_dumb_instr(str, instructions, 2, 0);

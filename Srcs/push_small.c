@@ -6,7 +6,7 @@
 /*   By: ebellon <ebellon@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 18:59:27 by ebellon           #+#    #+#             */
-/*   Updated: 2021/09/21 14:32:25 by ebellon          ###   ########lyon.fr   */
+/*   Updated: 2021/10/01 16:28:05 by ebellon          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,21 +108,21 @@ int	ft_chech_sing_arg(char *str, t_data *data)
 	space_cpt = 0;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]) && str[i] != ' ')
+		if (!ft_isdigit(str[i]) && str[i] != ' ' && str[i] != '-')
 		{
-			printf("Error : args should only be int input as digit");
+			printf("Error : args should only be int input as digit\n");
 			free(data);
-			return (0);
+			exit(1);
 		}
-		if (str[i] == ' ')
+		if (str[i] == ' ' || str[i] == '-')
 			space_cpt++;
 		i++;
 	}
 	if (space_cpt == i)
 	{
-		printf("Error : args should only be int input as digit");
+		printf("Error : args should only be int input as digit\n");
 		free(data);
-		return (0);
+		exit(1);
 	}
 	return (1);
 }
